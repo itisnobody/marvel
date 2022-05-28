@@ -42,12 +42,12 @@ const CharList = (props) => {
         setLoading(false);
         setNewItemLoading(false);
         setOffset(offset => offset + 9);
-    }
+    };
 
     const onError = () => {
         setError(true);
         setLoading(false);
-    }
+    };
 
     const itemRefs = useRef([]);
 
@@ -61,7 +61,9 @@ const CharList = (props) => {
 
         const items =  arr.map((item, i) => {
             let imgStyle = {'objectFit' : 'cover'};
-            if (item.thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg' || 'http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c002e0305708.gif') {
+            if (item.thumbnail ===
+                    'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg' ||
+                    'http://i.annihil.us/u/prod/marvel/i/mg/f/60/4c002e0305708.gif') {
                 imgStyle = {'objectFit' : 'unset'};
             }
             
@@ -84,14 +86,14 @@ const CharList = (props) => {
                         <img src={item.thumbnail} alt={item.name} style={imgStyle}/>
                         <div className="char__name">{item.name}</div>
                 </li>
-            )
+            );
         });
 
         return (
             <ul className="char__grid">
                 {items}
             </ul>
-        )
+        );
     }
 
     const items = renderItems(charList);
@@ -99,8 +101,6 @@ const CharList = (props) => {
     const errorMessage = error ? <ErrorMessage/> : null;
     const spinner = loading ? <Spinner/> : null;
     const content = !(loading || error) ? items : null;
-
-    console.log('render');
 
     return (
         <div className="char__list">
@@ -116,10 +116,10 @@ const CharList = (props) => {
             </button>
         </div>
     )
-}
+};
 
 CharList.propTypes = {
     onCharSelected: PropTypes.func.isRequired
-}
+};
 
 export default CharList;

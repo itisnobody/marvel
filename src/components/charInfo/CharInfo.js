@@ -48,7 +48,7 @@ const CharInfo = (props) => {
     const onError = () => {
         setLoading(false);
         setError(true);
-    }
+    };
 
     const skeleton = char || loading || error ? null : <Skeleton/>;
     const errorMessage = error ? <ErrorMessage /> : null;
@@ -62,7 +62,7 @@ const CharInfo = (props) => {
             {spinner}
             {content}
         </div>
-    )
+    );
 }
 
 const View = ({char}) => {
@@ -94,7 +94,7 @@ const View = ({char}) => {
             </div>
             {comics.length ? <ViewComics comics={comics}/> : null}
         </>
-    )
+    );
 }
 
 const ViewComics = ({comics}) => {
@@ -118,6 +118,6 @@ const ViewComics = ({comics}) => {
 
 CharInfo.propTypes = {
     charId: PropTypes.number
-}
+};
 
 export default CharInfo;
